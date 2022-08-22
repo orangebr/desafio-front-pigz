@@ -13,3 +13,4 @@ Seu desafio será criar a landpage do Pigz para clientes, neste momento você n�
 No link https://xd.adobe.com/view/ff23f156-a96e-4cf3-a0fb-bc2646c1945a-aa70/specs/ você conseguirá encontrar todo o material necessário para criar a página, incluindo cores, imagens e outros itens. Basta você clicar no componente e no lado esquerdo serão exibidos os detalhes dele (download, cores, textos).
 
 
+Pronto! Agora é mãos à obra!
