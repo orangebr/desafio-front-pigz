@@ -5,7 +5,7 @@ Desafio para estágio como desenvolvedor front-end na Pigz.
 1. Você deverá subir este desafio em um repositório público no seu github pessoal.
 2. Caso não consiga concluir todos os passos, não se preocupe, nos envie mesmo assim o que você fez para que possamos avaliar.
 3. O projeto deverá ser criado preferencialmente utilizando React JS;
-4. Seu foco deverá ser criar a página mobile, vai ser pra esse tipo de dispositivo que o resultado será avaliado.
+4. Seu foco deverá ser criar a página para dispositivos móveis, será para este tipo de dispositivo que o resultado será avaliado.
 
 ## O Desafio
 Seu desafio será criar a landpage do Pigz para clientes, neste momento você não precisará se preocupar com API e de onde os dados que são exibidos serão buscados, nosso foco será a criação dos componentes com o máximo possível de fidelidade ao que está sendo solicitado pelo time de UI.
