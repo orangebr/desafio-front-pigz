@@ -1,5 +1,5 @@
-## estagio-pigz
-Desafio para estágio como desenvolvedor front-end na Pigz. 
+## desafio-front-pigz
+Desafio para a vaga de desenvolvedor front-end na Pigz. 
 
 ## Regras básicas
 1. Você deverá subir este desafio em um repositório público no seu github pessoal.
