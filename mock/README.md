@@ -14,11 +14,13 @@ Sobe em `http://localhost:4000` (mude com a env `PORT`).
 |---|---|---|
 | `GET` | `/orders` | Lista os pedidos ativos |
 | `GET` | `/orders/:id` | Um pedido |
-| `PATCH` | `/orders/:id` | Muda o status — corpo `{ "status": "PREPARING" }` |
+| `PATCH` | `/orders/:id` | Muda o stage — corpo `{ "stage": "PREPARING" }` |
 | `GET` | `/events` | Stream **SSE** em tempo real |
 | `GET` | `/health` | Healthcheck |
 
-Status válidos: `RECEIVED`, `PREPARING`, `READY`, `DONE`, `CANCELLED`.
+`GET /orders` responde `{ "pagination": null, "orders": [ ... ] }`. Um erro sempre
+vem como `{ "error": "..." }`; erros de validação trazem também `identifier`,
+`code` e `errors[]`.
 
 ## Tempo real (SSE)
 
@@ -26,7 +28,7 @@ Status válidos: `RECEIVED`, `PREPARING`, `READY`, `DONE`, `CANCELLED`.
 lista atual; depois vai empurrando:
 
 - `order.created` — pedido novo entrou na cozinha
-- `order.updated` — pedido mudou de status (inclui cancelamento pelo cliente)
+- `order.updated` — pedido mudou de stage (inclui cancelamento pelo cliente)
 
 Exemplo no browser/React Native:
 
@@ -37,34 +39,66 @@ es.addEventListener('order.updated', (e) => console.log('mudou', JSON.parse(e.da
 ```
 
 Um pedido novo entra a cada **5s** por padrão. Ajuste com a env `EVENT_INTERVAL_MS`
-(em milissegundos), ex.: `EVENT_INTERVAL_MS=2000 node mock/server.js`.
+(ms), ex.: `EVENT_INTERVAL_MS=2000 node mock/server.js`.
 
 ## Formato do pedido
 
 ```json
 {
-  "id": "#0007",
-  "channel": "APP_IFOOD",
-  "table": 4,
-  "status": "RECEIVED",
-  "createdAtOffsetSeconds": 35,
-  "notes": null,
-  "items": [
+  "id": 7,
+  "reference": "#0007",
+  "origin": "IFOOD",
+  "stage": "PREPARING",
+  "status": "PAID",
+  "table": null,
+  "total": "54.00",
+  "created": "2026-09-21T20:14:03",
+  "updated": "2026-09-21T20:16:40",
+  "note": null,
+  "orderItems": [
     {
       "id": "7-0",
       "name": "Smash Duplo Cheddar",
       "station": "CHAPA",
       "quantity": 1,
-      "modifiers": ["sem cebola", "ponto mal passado"]
+      "price": "34.00",
+      "total": "34.00",
+      "note": "Caprichar no ponto",
+      "attributes": [
+        { "name": "Ponto da carne", "items": [{ "name": "Mal passado" }] }
+      ]
     }
   ]
 }
 ```
 
-- `channel`: `BALCAO` | `WHATSAPP` | `APP_IFOOD` | `APP_PIGZ`
+### Valores possíveis
+
+- `origin` (canal): `POS` (balcão), `WHATSAPP_AI` (WhatsApp), `IFOOD`, `MARKETPLACE_V2` (app/marketplace Pigz)
+- `stage`: `PENDING` → `CONFIRMED` → `PREPARING` → `READY` → `DONE`, ou `CANCELED`
+- `status` (pagamento): `PAID` | `NO_PAID`
 - `table`: número da mesa do salão, ou `null` (delivery/balcão)
-- `station`: `CHAPA` | `FRITADEIRA` | `MONTAGEM` (a linha de produção da cozinha)
-- `createdAtOffsetSeconds`: segundos desde que o server subiu — use para calcular o tempo de espera do pedido
+- `station` (linha de produção da cozinha): `CHAPA` | `FRITADEIRA` | `MONTAGEM`
+
+Para o tempo de espera do pedido, compare `created` com o horário atual.
+
+## De onde vêm esses nomes
+
+Para ficar perto da realidade, o mock usa **convenções reais do nosso back**
+(o que já é público no app):
+
+- `origin`, `stage` (`PENDING`/`CONFIRMED`/`PREPARING`/`CANCELED`), `status`
+  (`PAID`/`NO_PAID`), valores monetários em **decimal string** com 2 casas,
+  datas em **ISO 8601 sem timezone** nos campos `created`/`updated`, e a
+  estrutura `orderItems` → item → `attributes` → `items`.
+- `CANCELED` é com **um L só** — é assim no nosso back, de propósito.
+
+O que é **específico deste desafio** (não existe no back real):
+
+- `stage` `READY` e `DONE` — o back de vocês é focado em entrega e não tem um
+  "pronto na cozinha". **Como você modela o caminho até o pedido sair da cozinha
+  faz parte do desafio.**
+- `station` (CHAPA/FRITADEIRA/MONTAGEM) — a linha de produção da Brasa do Jorge.
 
 > Este mock é de propósito simples e sem firulas. **Pode mexer nele** — adicionar
 > campo, endpoint, mudar a cadência dos eventos. Ler e estender código alheio faz
