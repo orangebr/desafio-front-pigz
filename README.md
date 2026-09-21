@@ -38,6 +38,12 @@ A **Brasa do Jorge** é uma hamburgueria artesanal de bairro, ponto de rua, 4 an
 - Salão com **10 mesas**; balcão de retirada separado para delivery
 - Hoje o único vínculo entre cozinha, salão e delivery é **uma impressora térmica** cuspindo comanda de papel
 
+### O cardápio
+
+![Cardápio da Brasa do Jorge](imagens/BrasaDoJorge-cardapio.jpg)
+
+É o que sai da cozinha — hambúrgueres na chapa, fritos na fritadeira, bebidas e shakes na montagem. É esse o conteúdo dos pedidos que vão cair no painel.
+
 ### Seu Jorge desabafa (na visita, ele disse:)
 
 > *"Sexta à noite chega pedido do balcão, do zap e do app tudo junto. Vira uma pilha de papel na bancada. Semana passada uma comanda caiu atrás da chapa e o cara esperou 40 minutos."*
@@ -59,6 +65,10 @@ A **Brasa do Jorge** é uma hamburgueria artesanal de bairro, ponto de rua, 4 an
 > *"Meus funcionários **não podem ficar clicando** — mão suja, correria. Tem que ser no olhar."*
 
 > *"Às vezes o cliente **desiste** e a cozinha já começou o pedido. Ninguém avisa."*
+
+E é assim que esses pedidos chegam hoje, numa sexta no pico:
+
+![A cozinha da Brasa do Jorge no pico: impressora cuspindo comanda, papel na bancada, no varal e no chão](imagens/BrasaDoJorge-cozinha.jpg)
 
 ## A missão
 
