@@ -116,6 +116,8 @@ Já deixamos um mock server pronto na pasta [`/mock`](./mock). Ele:
   - Como você usou IA (veja a seção no começo).
 - Um vídeo ou GIF curto do KDS reagindo a um pedido novo em tempo real é opcional, mas ajuda.
 
+Quando terminar, envie o link do seu repositório para **desafio@pigz.com.br** para a gente avaliar.
+
 Se não der tempo de fazer tudo, entregue mesmo assim e conte o que ficou de fora e por quê. Preferimos um recorte bem-feito e bem explicado a tudo pela metade.
 
 ## Sobre o tempo
