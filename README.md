@@ -1,6 +1,6 @@
 # Desafio Front-end · Pigz
 
-Olá! Este é o desafio técnico para a vaga de Front-end Pleno/Sênior na Pigz.
+Olá! Este é o desafio técnico de Front-end da Pigz. Ele é o **mesmo para todos os níveis** — júnior, pleno ou sênior. Você entrega até onde conseguir, e a **profundidade da sua entrega é o que mostra o seu nível** (não precisa dizer qual é). Lá no fim tem uma seção **[Níveis](#níveis-a-entrega-define-o-nível)** explicando como isso funciona.
 
 Aqui a gente não te entrega uma tela pronta pra você copiar. A gente te apresenta um problema de um lojista e quer ver como você chega da dor até uma solução funcionando: entender o que importa, decidir o que fazer, projetar e construir.
 
@@ -70,6 +70,10 @@ E é assim que esses pedidos chegam hoje, numa sexta no pico:
 
 ![A cozinha da Brasa do Jorge no pico: impressora cuspindo comanda, papel na bancada, no varal e no chão](imagens/BrasaDoJorge-cozinha.jpg)
 
+E, do outro lado da passagem, o salão no mesmo horário — mesas cheias, motoboy parado na retirada e o garçom sem saber o que priorizar:
+
+![O salão da Brasa do Jorge no pico: mesas cheias, motoboy esperando na retirada e a cozinha visível pela janela de passagem](imagens/BrasaDoJorge-salao.jpg)
+
 ## A missão
 
 Seu Jorge ouviu falar de KDS (Kitchen Display System, o painel de pedidos da cozinha) e acha que resolve a vida dele. Mas ele não sabe o que é, nem o que precisa ter. Isso é com você.
@@ -95,7 +99,7 @@ Use tipagem forte: Kotlin já é; em React Native, TypeScript com `strict` ligad
 
 ### O que vamos olhar de perto
 
-São os pontos onde um trabalho Pleno/Sênior se destaca:
+São as dimensões que a gente avalia — em qualquer nível. O quanto você avança em cada uma é o que revela a sua senioridade (veja **[Níveis](#níveis-a-entrega-define-o-nível)** mais abaixo):
 
 - **Tempo real.** Pedido novo aparece sozinho na tela, sem ninguém dar refresh. Você escolhe a técnica (WebSocket, SSE, polling…), mas queremos ver a escolha justificada e o que costuma ser esquecido tratado:
   - Reconexão quando a internet da cozinha cai (e ela cai).
@@ -116,6 +120,29 @@ Já deixamos um mock server pronto na pasta [`/mock`](./mock). Ele:
 - Roda sem instalar nada, só com Node. Veja o [README do mock](./mock/README.md).
 
 "Encostar no back" aqui é literal: pode ler, ajustar e estender esse mock (um campo novo, um endpoint, a cadência dos eventos) pra servir a sua solução. Queremos ver como você lê código que não é seu e mexe nele com cuidado, não que escreva um backend do zero. Você não precisa (nem deve) construir um back próprio; o foco é o front.
+
+## Níveis: a entrega define o nível
+
+O desafio é **um só, aberto a qualquer nível**. Você não escolhe uma "trilha" nem precisa declarar se é júnior, pleno ou sênior — a gente lê isso na sua entrega. Cada nível **inclui o anterior**: quanto mais fundo você vai, mais alto o nível que a entrega demonstra.
+
+**Júnior — faz funcionar, com capricho**
+- Um KDS que roda de verdade: lista os pedidos do mock, deixa mudar o status e atualiza quando chega pedido novo.
+- Tela organizada e legível; código limpo e fácil de ler.
+- README dizendo como rodar.
+
+**Pleno — resolve o que é difícil, sozinho**
+- Tudo do júnior, mais:
+- Tempo real bem tratado: reconecta quando a internet da cozinha cai e **não duplica** pedido quando o evento chega duas vezes.
+- Aguenta a fila cheia sem travar; ciclo de vida do pedido modelado com intenção (não `if` espalhado).
+- Responsivo (tablet e telefone), trata erro/offline sem quebrar, e testes na lógica que quebra em produção.
+
+**Sênior — decide o produto e defende**
+- Tudo do pleno, mais:
+- Escopo e prioridades escolhidos com critério (o que entra agora, o que fica pra v2) e **defendidos no README**.
+- Arquitetura que escala e UX de cozinha pensada de verdade: múltiplos dispositivos (TV, tablet, telefone), estações, estados que se distinguem sem depender só de cor, tempo de espera à vista.
+- Conduz a ambiguidade sem ficar travado esperando resposta; trade-offs explícitos.
+
+Mirar acima do seu nível de hoje é bem-vindo — uma tentativa honesta e bem explicada conta a favor, mesmo incompleta.
 
 ## Como entregar
 
