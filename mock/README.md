@@ -92,7 +92,6 @@ Para ficar perto da realidade, o mock usa **convenções reais do nosso back**
   (`PAID`/`NO_PAID`), valores monetários em **decimal string** com 2 casas,
   datas em **ISO 8601 sem timezone** nos campos `created`/`updated`, e a
   estrutura `orderItems` → item → `attributes` → `items`.
-- `CANCELED` é com **um L só** — é assim no nosso back, de propósito.
 
 O que é **específico deste desafio** (não existe no back real):
 
