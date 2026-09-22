@@ -1,6 +1,6 @@
 # Desafio Front-end · Pigz
 
-Olá! Este é o desafio técnico de Front-end da Pigz. Ele é o **mesmo para todos os níveis** — júnior, pleno ou sênior. Você entrega até onde conseguir, e a **profundidade da sua entrega é o que mostra o seu nível** (não precisa dizer qual é). Lá no fim tem uma seção **[Níveis](#níveis-a-entrega-define-o-nível)** explicando como isso funciona.
+Olá! Este é o desafio técnico de Front-end da Pigz. Ele é o **mesmo para todos os níveis** — júnior, pleno ou sênior. Você entrega até onde conseguir, e a **profundidade da sua entrega é o que mostra o seu nível** (não precisa dizer qual é).
 
 Aqui a gente não te entrega uma tela pronta pra você copiar. A gente te apresenta um problema de um lojista e quer ver como você chega da dor até uma solução funcionando: entender o que importa, decidir o que fazer, projetar e construir.
 
@@ -99,7 +99,7 @@ Use tipagem forte: Kotlin já é; em React Native, TypeScript com `strict` ligad
 
 ### O que vamos olhar de perto
 
-São as dimensões que a gente avalia — em qualquer nível. O quanto você avança em cada uma é o que revela a sua senioridade (veja **[Níveis](#níveis-a-entrega-define-o-nível)** mais abaixo):
+São as dimensões que a gente avalia — em qualquer nível. O quanto você avança em cada uma é o que revela a sua senioridade:
 
 - **Tempo real.** Pedido novo aparece sozinho na tela, sem ninguém dar refresh. Você escolhe a técnica (WebSocket, SSE, polling…), mas queremos ver a escolha justificada e o que costuma ser esquecido tratado:
   - Reconexão quando a internet da cozinha cai (e ela cai).
@@ -120,55 +120,6 @@ Já deixamos um mock server pronto na pasta [`/mock`](./mock). Ele:
 - Roda sem instalar nada, só com Node. Veja o [README do mock](./mock/README.md).
 
 "Encostar no back" aqui é literal: pode ler, ajustar e estender esse mock (um campo novo, um endpoint, a cadência dos eventos) pra servir a sua solução. Queremos ver como você lê código que não é seu e mexe nele com cuidado, não que escreva um backend do zero. Você não precisa (nem deve) construir um back próprio; o foco é o front.
-
-## Níveis: a entrega define o nível
-
-O desafio é **um só, aberto a qualquer nível**. Você não escolhe uma "trilha" nem precisa declarar se é júnior, pleno ou sênior — a gente lê isso na sua entrega, em **dois eixos**: **produto** (o que você decide construir e por quê) e **técnico de front-end** (como você constrói). Cada nível **inclui o anterior**: quanto mais fundo você vai nos dois, mais alto o nível que a entrega demonstra.
-
-### Júnior — faz funcionar, com capricho
-
-**Produto**
-- Lê o cenário e mira na dor central (a pilha de papel, o pedido que se perde), sem tentar abraçar tudo.
-- Entrega o essencial do KDS: ver os pedidos e mudar o status conforme a cozinha avança.
-- Decide, de forma simples mas consciente, o que mostrar em cada pedido (número, itens, horário).
-
-**Front-end**
-- App rodando de verdade, consumindo o mock (lista os pedidos e faz o `PATCH` de status).
-- Pedido novo aparece na tela sem refresh manual (pode ser o caminho mais simples, desde que funcione).
-- Componentização básica (card de pedido, coluna/lista) e estado organizado, sem gambiarra.
-- Tipagem forte, nomes claros e um README com o passo a passo de como rodar.
-
-### Pleno — resolve o que é difícil, sozinho
-
-**Produto**
-- Prioriza: escolhe quais dores resolver agora e diz o que ficou de fora (e por quê).
-- Pensa no fluxo além da cozinha: sinaliza o que ficou **pronto** e quem pega (garçom, motoboy).
-- Trata o pedido pelo que ele é: diferencia pequeno de grande, destaca o **atrasado**, mostra os modificadores ("sem cebola", "ponto mal passado").
-- UX de cozinha começa a aparecer: toque grande, leitura rápida no meio da correria.
-
-**Front-end**
-- Tempo real com a técnica escolhida e **justificada** (SSE/WebSocket/polling), com **reconexão** quando a internet cai e **sem duplicar** pedido (dedupe pelo `id`).
-- Estado de servidor separado do estado de UI; atualização otimista com rollback quando o back recusa.
-- Aguenta a fila cheia sem engasgar (lista virtualizada / render eficiente, sem re-render geral).
-- Ciclo de vida do pedido como máquina de estados explícita (transições válidas, não `if` espalhado).
-- Responsivo (tablet e telefone), degrada com aviso quando o back falha, e testes na lógica que quebra em produção (transições, evento duplicado).
-
-### Sênior — decide o produto e defende
-
-**Produto**
-- Define escopo e prioridades com critério e **defende as escolhas** no README (o que entra agora, o que é v2, o porquê).
-- Enxerga o negócio: os vários canais de origem, as estações da cozinha, o tempo de espera/SLA, a disputa salão × delivery.
-- Pensa o produto ponta a ponta: onde cada tela vive e quem a usa (TV na cozinha, tablet por estação, tela de retirada) — o multi-dispositivo tem propósito, não é enfeite.
-- Conduz a ambiguidade: assume premissas, registra e propõe evolução, sem travar esperando resposta.
-
-**Front-end**
-- Arquitetura que escala e se mantém: limites claros, fácil de estender, pouca dependência escondida.
-- Multi-dispositivo real por contexto de uso: TV lida de longe (read-only), tablet em landscape na cozinha, telefone.
-- Robustez de tempo real: reconciliação de eventos perdidos após a queda, idempotência sólida, indicador de conexão.
-- Acessibilidade e UX de operação: estados que se distinguem **sem depender só de cor**, contraste, alvos generosos, tempo de espera à vista.
-- Performance sob densidade comprovada e testes que cobrem o que realmente quebra; trade-offs técnicos explícitos.
-
-Mirar acima do seu nível de hoje é bem-vindo — uma tentativa honesta e bem explicada conta a favor, mesmo incompleta.
 
 ## Como entregar
 
