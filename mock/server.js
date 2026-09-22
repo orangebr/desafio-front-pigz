@@ -32,8 +32,8 @@ const PORT = process.env.PORT || 4000;
 // Vocabulário (convenções do pigz-api, quando existem)
 // ---------------------------------------------------------------------------
 
-// origin: canal de onde o pedido veio. Todos abaixo são valores ORIGIN_* reais.
-const ORIGINS = ['POS', 'WHATSAPP_AI', 'IFOOD', 'MARKETPLACE_V2'];
+// origin: canal de onde o pedido veio.
+const ORIGINS = ['POS', 'WHATSAPP_AI', 'IFOOD', 'MARKETPLACE', 'CARDAPIO_WEB', 'CLIENTE_FIEL'];
 
 // stage: estágio do pedido. PENDING/CONFIRMED/PREPARING/CANCELED são valores
 // reais do back (note: CANCELED com um L só). READY e DONE são específicos

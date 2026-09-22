@@ -74,20 +74,21 @@ Um pedido novo entra a cada **5s** por padrão. Ajuste com a env `EVENT_INTERVAL
 
 ### Valores possíveis
 
-- `origin` (canal): `POS` (balcão), `WHATSAPP_AI` (WhatsApp), `IFOOD`, `MARKETPLACE_V2` (app/marketplace Pigz)
+- `id` (número) e `reference` (código exibível, ex.: `#0007`): identificam o pedido. Use o `id` como chave — inclusive para não duplicar o card quando o mesmo evento chegar duas vezes.
+- `origin` (canal de onde o pedido veio): `POS` (balcão), `WHATSAPP_AI` (WhatsApp), `IFOOD`, `MARKETPLACE` (app/marketplace Pigz), `CARDAPIO_WEB` (cardápio web), `CLIENTE_FIEL` (Cliente Fiel)
 - `stage`: `PENDING` → `CONFIRMED` → `PREPARING` → `READY` → `DONE`, ou `CANCELED`
 - `status` (pagamento): `PAID` | `NO_PAID`
 - `table`: número da mesa do salão, ou `null` (delivery/balcão)
 - `station` (linha de produção da cozinha): `CHAPA` | `FRITADEIRA` | `MONTAGEM`
 
-Para o tempo de espera do pedido, compare `created` com o horário atual.
+Os pedidos chegam de vários canais (`origin`) ao mesmo tempo — pense em como a tela lida com essa mistura. Para o tempo de espera, compare `created` com o horário atual.
 
 ## De onde vêm esses nomes
 
 Para ficar perto da realidade, o mock usa **convenções reais do nosso back**
 (o que já é público no app):
 
-- `origin`, `stage` (`PENDING`/`CONFIRMED`/`PREPARING`/`CANCELED`), `status`
+- `stage` (`PENDING`/`CONFIRMED`/`PREPARING`/`CANCELED`), `status`
   (`PAID`/`NO_PAID`), valores monetários em **decimal string** com 2 casas,
   datas em **ISO 8601 sem timezone** nos campos `created`/`updated`, e a
   estrutura `orderItems` → item → `attributes` → `items`.
