@@ -70,6 +70,10 @@ E é assim que esses pedidos chegam hoje, numa sexta no pico:
 
 ![A cozinha da Brasa do Jorge no pico: impressora cuspindo comanda, papel na bancada, no varal e no chão](imagens/BrasaDoJorge-cozinha.jpg)
 
+E, do outro lado da passagem, o salão no mesmo horário — mesas cheias, motoboy parado na retirada e o garçom sem saber o que priorizar:
+
+![O salão da Brasa do Jorge no pico: mesas cheias, motoboy esperando na retirada e a cozinha visível pela janela de passagem](imagens/BrasaDoJorge-salao.jpg)
+
 ## A missão
 
 Seu Jorge ouviu falar de KDS (Kitchen Display System, o painel de pedidos da cozinha) e acha que resolve a vida dele. Mas ele não sabe o que é, nem o que precisa ter. Isso é com você.
